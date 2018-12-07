@@ -1,0 +1,36 @@
+* {
+  position: relative;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial;
+  color: #47525E;
+}
+
+#wrapper {
+  width: 95%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+#header {
+  text-align: center;
+}
+
+#submit {
+  background-color: #4091E9;
+  border: 0;
+  border-radius: 5px;
+  color: white;
+  padding: 5px 10px;
+  display: block;
+  margin: 0 auto;
+}
+
+#img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: -1;
+}

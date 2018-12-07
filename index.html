@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Medicine Form</title>
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="wrapper">
+    <header id="header">
+      <h1>Welcome to Honeybee Health</h1>
+      <h2>Sign-up for reminder e-mails!</h2>
+    </header>
+
+    <form id="formy">
+      <input id="name" type="text" placeholder="Full name" />
+      <input id="email" type="text" placeholder="Email" />
+      <input id="medicine" type="text" placeholder="Medicine Name" />
+
+      <select id="days">
+        <optgroup label="Days supply of RX">
+          <option value="30">30</option>
+          <option value="60">60</option>
+          <option value="90" selected>90</option>
+          <option value="100">100</option>
+          <option value="120">120</option>
+        </optgroup>
+      </select>
+
+      <p>
+        Hi, <span id="name_display">___</span>!
+        <br/>
+        Thanks for signing up for a reminder for <span id="medicine_display">___</span>. We'll send it to <span id="email_display">___</span> on <span id="date"></span>, to give you a little notice.
+      </p>
+
+      <button id="submit">Set Reminder</button>
+    </form>
+
+    <img id="img" src="rx_reminder.png" alt="medicine reminder" />
+
+    <section>
+      As a service, here are the possible drug reactions you should contact your doctor if you're experiencing:
+
+      <div id="reactions"></div>
+    </section>
+  </div>
+  
+  <script src="logic.js"></script>
+</body>
+</html>
