@@ -1,42 +1,46 @@
-function getDate() {
+function getDate(days) {
   var d = new Date();
 
   // calculate future date based on user selection
-  d.setDate(d.getDate() + parseInt(document.getElementById("days").value
-) - 5);
+  d.setDate(d.getDate() + days - 5);
 
   // format and plug into html
   var format = `${d.getMonth()+1}/${d.getDate()}/${d.getFullYear()}`;
-  document.getElementById("date").textContent = format;
+  document.getElementById("date_display").textContent = format;
 }
 
 // display initial date on page load
-getDate();
+getDate(90);
 
 // change date display any time drop-down changes
-document.getElementById("days").onchange = getDate;
+document.getElementById("days").onchange = function() {
+  getDate(parseInt(this.value));
+};
 
 document.getElementById("name").onblur = function() {
   // display name after input has changed
-  document.getElementById("name_display").textContent = this.value;
+  document.getElementById("name_display").textContent = this.value || "___";
 };
 
 document.getElementById("email").onblur = function() {
   // display email after input has changed
-  document.getElementById("email_display").textContent = this.value;
+  document.getElementById("email_display").textContent = this.value || "___";
 };
 
 document.getElementById("medicine").onblur = function() {
   // display medicine after input has changed
-  document.getElementById("medicine_display").textContent = this.value;
+  document.getElementById("medicine_display").textContent = this.value || "___";
+
+  // clear list of results
+  document.getElementById("reactions").innerHTML = "";
+
+  // don't continue if input is blank
+  if (!this.value) return;
 
   // call api
   fetch(`https://api.fda.gov/drug/event.json?search=${this.value}&count=patient.reaction.reactionmeddrapt.exact`).then(function(response) {
     // verify if api call worked
-    if (response.status !== 200) {
-      document.getElementById("reactions").innerHTML = "";
-      return;
-    }
+    if (response.status !== 200) return;
   
     response.json().then(function(data) {
       // start list
@@ -61,4 +65,6 @@ document.getElementById("medicine").onblur = function() {
 document.getElementById("formy").onsubmit = function(event) {
   // stop page from reloading
   event.preventDefault();
+
+  // TO DO: validate form
 };

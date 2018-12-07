@@ -4,8 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
   <title>Medicine Form</title>
 
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -15,37 +17,36 @@
       <h2>Sign-up for reminder e-mails!</h2>
     </header>
 
-    <form id="formy">
-      <input id="name" type="text" placeholder="Full name" />
-      <input id="email" type="text" placeholder="Email" />
-      <input id="medicine" type="text" placeholder="Medicine Name" />
+    <img id="img" src="rx_reminder.png" alt="medicine reminder" />
 
-      <select id="days">
-        <optgroup label="Days supply of RX">
+    <form id="formy">
+      <input class="field" id="name" type="text" placeholder="Full name" />
+      <input class="field" id="email" type="text" placeholder="Email" />
+      <input class="field" id="medicine" type="text" placeholder="Medicine Name" />
+
+      <select class="field" id="days">
+          <option disabled selected>Days supply of RX</option>
           <option value="30">30</option>
           <option value="60">60</option>
-          <option value="90" selected>90</option>
+          <option value="90">90</option>
           <option value="100">100</option>
           <option value="120">120</option>
-        </optgroup>
       </select>
 
       <p>
         Hi, <span id="name_display">___</span>!
         <br/>
-        Thanks for signing up for a reminder for <span id="medicine_display">___</span>. We'll send it to <span id="email_display">___</span> on <span id="date"></span>, to give you a little notice.
+        Thanks for signing up for a reminder for <span id="medicine_display">___</span>. We'll send it to <span id="email_display">___</span> on <span id="date_display"></span>, to give you a little notice.
       </p>
 
       <button id="submit">Set Reminder</button>
-    </form>
-
-    <img id="img" src="rx_reminder.png" alt="medicine reminder" />
-
-    <section>
-      As a service, here are the possible drug reactions you should contact your doctor if you're experiencing:
+      
+      <p>
+        As a service, here are the possible drug reactions you should contact your doctor if you're experiencing:
+      </p>
 
       <div id="reactions"></div>
-    </section>
+    </form>
   </div>
   
   <script src="logic.js"></script>

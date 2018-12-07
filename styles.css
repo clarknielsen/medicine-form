@@ -4,18 +4,31 @@
 }
 
 body {
-  font-family: Arial;
+  font-family: Roboto, Arial;
   color: #47525E;
 }
 
 #wrapper {
-  width: 95%;
-  max-width: 800px;
+  width: 700px;
   margin: 0 auto;
 }
 
 #header {
   text-align: center;
+  margin-top: 5%;
+}
+
+#img {
+  position: absolute;
+  width: 200px;
+  top: 55px;
+  right: -65px;
+  z-index: -1;
+}
+
+#formy {
+  width: 75%;
+  margin-top: 10%;
 }
 
 #submit {
@@ -23,14 +36,55 @@ body {
   border: 0;
   border-radius: 5px;
   color: white;
-  padding: 5px 10px;
+  padding: 10px 30px;
   display: block;
-  margin: 0 auto;
+  margin: 8% auto 5% auto;
+  cursor: pointer;
+  outline: none;
+  transition: background-color .5s;
 }
 
-#img {
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: -1;
+#submit:hover {
+  background-color: #1c65b2;
+}
+
+#reactions li {
+  line-height: 150%;
+}
+
+.field {
+  width: 200px;
+  padding: 8px;
+  border: 1px solid #A2ADBB;
+  border-radius: 5px;
+  outline: none;
+  margin: 0 10% 10% 0;
+}
+
+.field::placeholder {
+  color: #A2ADBB;
+}
+
+@media only screen and (max-width: 700px) {
+  body, #submit, .field {
+    font-size: 105%;
+  }
+  
+  #wrapper, #formy {
+    width: 100%;
+  }
+
+  #formy {
+    padding: 0 5%;
+  }
+
+  #img {
+    display: none;
+  }
+
+  .field {
+    width: 100%;
+    display: block;
+    margin: 0 auto 5% auto;
+  }
 }
