@@ -65,6 +65,10 @@ body {
   color: #A2ADBB;
 }
 
+.error {
+  border: 1px solid red;
+}
+
 @media only screen and (max-width: 700px) {
   body, #submit, .field {
     font-size: 105%;

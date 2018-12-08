@@ -1,3 +1,7 @@
+function clearError() {
+  this.classList.remove("error");
+}
+
 function getDate(days) {
   var d = new Date();
 
@@ -16,6 +20,11 @@ getDate(90);
 document.getElementById("days").onchange = function() {
   getDate(parseInt(this.value));
 };
+
+// remove "error" class when user has interacted with elements
+document.getElementById("name").onkeydown = clearError;
+document.getElementById("email").onkeydown = clearError;
+document.getElementById("medicine").onkeydown = clearError;
 
 document.getElementById("name").onblur = function() {
   // display name after input has changed
@@ -66,5 +75,13 @@ document.getElementById("formy").onsubmit = function(event) {
   // stop page from reloading
   event.preventDefault();
 
-  // TO DO: validate form
+  // validate form
+  var inputs = [document.getElementById("name"), document.getElementById("email"), document.getElementById("medicine")];
+
+  for (let i = 0; i < inputs.length; i++) {
+    // if blank, highlight element
+    if (inputs[i].value === "") {
+      inputs[i].classList.add("error");
+    }
+  }
 };
